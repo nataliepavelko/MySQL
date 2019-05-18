@@ -11,10 +11,7 @@ sex ENUM ("F", "M"));
 create table skills (
 id int auto_increment primary key,
 name varchar (50) NOT NULL,
-level varchar (20) NOT NULL,
-id_developer int (10) NOT NULL,
-FOREIGN KEY (id_developer) REFERENCES developers (id)
-);
+level varchar (20) NOT NULL);
 
 create table projects 
 (id int auto_increment primary key,
@@ -59,15 +56,15 @@ INSERT INTO developers (name, surname , sex) VALUES
 
 select * from developers;
 
-INSERT INTO skills(name, level, id_developer) VALUES
-('Java', 'Junior', 1),
-('SQL', 'Junior', 1),
-('C#', 'Junior', 4),
-('JS', 'Senior', 2),
-('SQL', 'Middle', 3),
-('C++', 'Senior', 5),
-('Java', 'Middle', 2),
-('Java', 'Senior', 6);
+INSERT INTO skills(name, level) VALUES
+('Java', 'Junior'),
+('SQL', 'Junior'),
+('C#', 'Junior'),
+('JS', 'Senior'),
+('SQL', 'Middle'),
+('C++', 'Senior'),
+('Java', 'Middle'),
+('Java', 'Senior');
 
 INSERT INTO projects (name) VALUES
 ('DNA'), 
@@ -113,3 +110,10 @@ insert into customers_projects values
 (3, 3), (3, 6), 		    -- SortSoft заказал проекты Step by Step и  Soup 
 (4, 5); 				        -- Force заказал проект Milly
 
+INSERT INTO developers_skills (id_developer, id_skill) VALUES
+(1, 1), (1, 2),
+(2, 4), (2, 7),
+(3, 5),
+(4, 3),
+(5, 6),
+(6, 8);
