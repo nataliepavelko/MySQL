@@ -23,14 +23,15 @@ from developers d, projects p, developers_projects dp
 where d.id = dp.id_developer
 and p.id = dp.id_project
 group by p.name
-order by sum(salary) desc;
+order by sum(salary) desc
+limit 1;
 
 -- 3. Вычислить общую ЗП только Java разработчиков --
-
 select sum(salary), s.name
-from developers d, skills s
-where s.name = "Java"
-and d.id = s.id_developer;
+from developers d, skills s, developers_skills ds
+where d.id = ds.id_developer
+and s.id = ds.id_skill
+and s.id in (1, 7, 8);
 
 -- 4. Добавить поле (cost - стоимость) в таблицу Projects
 alter table projects add column cost int (10);
@@ -55,7 +56,9 @@ select * from projects;
 select min(cost), name
 from projects
 group by name
-order by min(cost);
+order by min(cost)
+limit 1;
+
 
 -- 6. Вычислить среднюю ЗП программистов в самом дешевом проекте
 
