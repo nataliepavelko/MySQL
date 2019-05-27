@@ -34,7 +34,7 @@ and s.id = ds.id_skill
 and s.id in (1, 7, 8);
 
 -- 4. Добавить поле (cost - стоимость) в таблицу Projects
-alter table projects add column cost int (10);
+alter table projects add column cost double;
 update projects set cost = 122000
 where id = 1;
 update projects set cost = 77500
@@ -62,7 +62,7 @@ limit 1;
 
 -- 6. Вычислить среднюю ЗП программистов в самом дешевом проекте
 
-select min(cost), avg(salary), p.name, count(d.id)
+select min(cost), avg(salary), p.name
 from developers d, projects p, developers_projects dp
 where  cost = (select min(cost)
 from projects)
