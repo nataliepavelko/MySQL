@@ -6,7 +6,7 @@ create table developers
 (id int auto_increment primary key,
 name varchar (50) NOT NULL,
 surname varchar (50) NOT NULL,
-sex VARCHAR (10)); -- 
+sex VARCHAR (10)); 
 
 create table skills (
 id int auto_increment primary key,
@@ -22,7 +22,7 @@ date VARCHAR(300));
 create table companies 
 (id int auto_increment primary key,
 name varchar (300) NOT NULL,
-address LONGTEXT); -- 
+address LONGTEXT); 
 
 create table customers 
 (id int auto_increment primary key,
